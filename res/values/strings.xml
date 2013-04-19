@@ -404,7 +404,7 @@
     <string name="system_bar_height_landscape_title">System Bar height landscape</string>
     <string name="system_bar_height_landscape_summary">System Bar height while in landscape</string>
     <string name="navigation_bar_width_title">Navigation Bar width</string>
-    <string name="navigation_bar_width_summary">Navigation Bar height if the bar is along a side</string>
+    <string name="navigation_bar_width_summary">Navigation Bar height if the bar is along a side. Must restart device to take affect.</string>
     <string name="navbar_enable_dialog_title">Reboot required!</string>
     <string name="navbar_enable_dialog_msg">You <b>should</b> reboot right now to make sure everything works properly!</string>
     <string name="navbar_enable_dialog_negative">I\'ll reboot later</string>
