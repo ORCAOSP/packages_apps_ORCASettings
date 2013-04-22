@@ -48,11 +48,6 @@
         <activity
             android:name=".fragments.TransparencyDialog"
             android:theme="@android:style/Theme.Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".fragments.StatusBarClock"
@@ -84,6 +79,15 @@
         <activity
             android:name=".fragments.NavRingTargets"
             android:label="@string/title_navring" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.aokp.romcontrol.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.RibbonTargets"
+            android:label="@string/title_ribbon" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -219,6 +223,22 @@
         <service
             android:name=".service.ExternalCommandService"
             android:exported="false"/>
+
+        <!-- mGerrit, embedded Gerrit instance viewer -->
+        <activity
+            android:name="com.jbirdvegas.mgerrit.GerritControllerActivity"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:label="@string/mgerrit_activity_name"/>
+        <activity android:name="com.jbirdvegas.mgerrit.ReviewTab"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name="com.jbirdvegas.mgerrit.MergedTab"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name="com.jbirdvegas.mgerrit.AbandonedTab"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name="com.jbirdvegas.mgerrit.PatchSetViewerActivity"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name="com.jbirdvegas.mgerrit.Prefs"
+            android:theme="@android:style/Theme.Holo.Light"/>
     </application>
 
 </manifest>
