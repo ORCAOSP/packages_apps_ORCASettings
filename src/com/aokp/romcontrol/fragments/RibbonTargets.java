@@ -495,10 +495,10 @@ public class RibbonTargets extends AOKPPreferenceFragment implements
                 com.android.internal.R.bool.config_showNavigationBar);
         boolean navBarAutoHide = Settings.System.getBoolean(mContentRes,
                     Settings.System.NAV_HIDE_ENABLE, false);
-        boolean navbarZero = Integer.parseInt(ExtendedPropertiesUtils.getProperty(
-                    "com.android.systemui.navbar.dpi", "100")) == 0 && !expanded;
         boolean expanded = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.EXPANDED_DESKTOP_STATE, 0) == 1;
+        boolean navbarZero = Integer.parseInt(ExtendedPropertiesUtils.getProperty(
+                    "com.android.systemui.navbar.dpi", "100")) == 0 && !expanded;
         if (arrayNum == 2) {
             if (hasNavBarByDefault || navbarZero) {
                 mEnableBottomWarning.setVisibility(View.VISIBLE);
