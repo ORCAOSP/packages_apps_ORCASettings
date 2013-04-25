@@ -34,7 +34,7 @@
             android:layout_height="@dimen/toggle_rearrange_dialog_title_height"
             android:gravity="center_vertical"
             android:padding="12dp"
-            android:text="@string/toggle_dialog_arrange_title"
+            android:text="@string/ribbon_dialog_arrange_title"
             android:textAppearance="?android:textAppearanceLarge"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -99,12 +99,12 @@
                 android:text="@string/toggles_display_close" />
 
             <Button
-                android:id="@+id/add_toggles"
+                android:id="@+id/save"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/add_toggles" />
+                android:text="@string/save" />
         </LinearLayout>
     </LinearLayout>
 
