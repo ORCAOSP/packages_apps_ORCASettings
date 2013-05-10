@@ -199,6 +199,11 @@
     <string name="transparency_dialog_match_keyguard_alpha">Match lockscreen alpha</string>
     <string name="transparency_dialog_transparency">Homescreen alpha</string>
     <string name="transparency_dialog_transparency_keyguard">Lockscreen alpha</string>
+    <string name="statusbar_hide_title">Hide Statusbar</string>
+    <string name="hidden_statusbar_pulldown_title">Hidden Statusbar Pulldown</string>
+    <string name="hidden_statusbar_pulldown_summary">Allows Statusbar to be pulled down when hidden</string>
+    <string name="hidden_statusbar_pulldown_timeout_title">Hidden Statusbar Pulldown Timeout</string>
+    <string name="hidden_statusbar_pulldown_timeout_summary">Timeout for Hidden Statusbar window</string>
 
     <!-- LCD Density -->
     <string name="lcd_density_title">LCD Density</string>
@@ -437,8 +442,6 @@
     <string name="navbar_widgets_delete">Delete widget</string>
     <string name="navigation_bar_menu_arrow_keys_title">Menu arrow keys</string>
     <string name="navigation_bar_menu_arrow_keys_summary">Checking this enables arrow keys in the Navigation Bar while typing</string>
-    <string name="statusbar_hide_title">Hide Statusbar</string>
-    <string name="statusbar_hide_summary">Checking this completely hides the Statusbar</string>
     <string name="navigation_bar_alpha_title">Statusbar and Navigation Bar opacity</string>
     <string name="navbar_hide_enable_title">Hidden NavBar Enable</string>
     <string name="drag_handle_opacity_title">Drag Handle Opacity</string>
@@ -499,6 +502,7 @@
     <string name="ribbon_swipe_left">Left swipe ribbon</string>
     <string name="ribbon_swipe_right">Right swipe ribbon</string>
     <string name="ribbon_swipe_bottom">Bottom swipe ribbon</string>
+    <string name="app_window">Application window</string>
     <string name="clone_title">Choose ribbon to clone</string>
     <string name="icon_size_normal">Normal</string>
     <string name="icon_size_20">Medium</string>
@@ -517,6 +521,10 @@
     <string name="ribbon_insert">Insert button</string>
     <string name="ribbon_handle_location_title">Ribbon Handle Location</string>
     <string name="ribbon_icon_location_title">Icon gravity</string>
+    <string name="window_text_color_title">Window text color</string>
+    <string name="window_color_title">Window color</string>
+    <string name="window_opacity_title">Window opacity</string>
+    <string name="window_columns_title">Window columns</string>
     <string name="center">Centered</string>
     <string name="top">Top</string>
     <string name="bottom">Bottom</string>

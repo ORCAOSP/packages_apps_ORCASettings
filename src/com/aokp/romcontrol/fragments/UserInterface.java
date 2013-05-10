@@ -104,6 +104,8 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     private static final CharSequence PREF_POWER_CRT_MODE = "system_power_crt_mode";
     private static final CharSequence PREF_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final CharSequence PREF_STATUSBAR_HIDDEN = "statusbar_hidden";
+    private static final CharSequence PREF_HIDDEN_STATUSBAR_PULLDOWN = "hidden_statusbar_pulldown";
+    private static final CharSequence PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
 
     private static final int REQUEST_PICK_WALLPAPER = 201;
     //private static final int REQUEST_PICK_CUSTOM_ICON = 202; //unused
@@ -137,7 +139,9 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     //CheckBoxPreference mDualpane;
     ListPreference mCrtMode;
     CheckBoxPreference mCrtOff;
-    CheckBoxPreference mStatusBarHide;
+    ListPreference mStatusBarHide;
+    CheckBoxPreference mHiddenStatusbarPulldown;
+    ListPreference mHiddenStatusbarPulldownTimeout;
 
     private AnimationDrawable mAnimationPart1;
     private AnimationDrawable mAnimationPart2;
@@ -153,6 +157,8 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     private int mSeekbarProgress;
     String mCustomLabelText = null;
     int mUserRotationAngles = -1;
+
+    private boolean isStatusBarHideChecked = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -234,9 +240,22 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
         mShowActionOverflow.setChecked(Settings.System.getBoolean(mContentResolver,
                         Settings.System.UI_FORCE_OVERFLOW_BUTTON, false));
 
-        mStatusBarHide = (CheckBoxPreference) findPreference(PREF_STATUSBAR_HIDDEN);
-        mStatusBarHide.setChecked(Settings.System.getBoolean(mContentResolver,
-                Settings.System.STATUSBAR_HIDDEN, false));
+        int HiddenStatus = Settings.System.getInt(mContentResolver, Settings.System.AUTO_HIDE_STATUSBAR, 0);
+        mStatusBarHide = (ListPreference) findPreference(PREF_STATUSBAR_HIDDEN);
+        mStatusBarHide.setValue(String.valueOf(HiddenStatus));
+                mStatusBarHide.setSummary(mStatusBarHide.getEntry());
+        mStatusBarHide.setOnPreferenceChangeListener(this);
+
+        mHiddenStatusbarPulldown = (CheckBoxPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN);
+        mHiddenStatusbarPulldown.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HIDDEN_STATUSBAR_PULLDOWN, 0) == 1);
+        mHiddenStatusbarPulldown.setEnabled(isStatusBarHideChecked);
+        mHiddenStatusbarPulldown.setOnPreferenceChangeListener(this);
+
+        mHiddenStatusbarPulldownTimeout = (ListPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT);
+        mHiddenStatusbarPulldownTimeout.setOnPreferenceChangeListener(this);
+        mHiddenStatusbarPulldownTimeout.setValue(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, 5000) + "");
 
         //mUserModeUI = (ListPreference) findPreference(PREF_USER_MODE_UI);
         //int uiMode = Settings.System.getInt(mContentResolver,
@@ -531,10 +550,6 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             Settings.System.putBoolean(mContentResolver,
                     Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
                     ((TwoStatePreference) preference).isChecked());
-        } else if (preference == mStatusBarHide) {
-            boolean checked = ((CheckBoxPreference)preference).isChecked();
-            Settings.System.putBoolean(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_HIDDEN, checked ? true : false);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -960,6 +975,26 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SYSTEM_POWER_CRT_MODE, crtMode);
             mCrtMode.setSummary(mCrtMode.getEntries()[index]);
+            return true;
+        } else if (preference == mStatusBarHide) {
+            String val = (String) newValue;
+                     Settings.System.putInt(mContentResolver, Settings.System.AUTO_HIDE_STATUSBAR,
+            Integer.valueOf(val));
+            int index = mStatusBarHide.findIndexOfValue(val);
+            mStatusBarHide.setSummary(mStatusBarHide.getEntries()[index]);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (mHiddenStatusbarPulldown.equals(preference)) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HIDDEN_STATUSBAR_PULLDOWN,
+                    ((Boolean) newValue).booleanValue() ? 1 : 0);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mHiddenStatusbarPulldownTimeout) {
+            int val = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, val);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
