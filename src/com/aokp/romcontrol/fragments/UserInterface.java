@@ -1,4 +1,3 @@
-
 package com.aokp.romcontrol.fragments;
 
 import android.app.Activity;
@@ -238,10 +237,11 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
         mShowActionOverflow.setChecked(Settings.System.getBoolean(mContentResolver,
                         Settings.System.UI_FORCE_OVERFLOW_BUTTON, false));
 
-        int HiddenStatus = Settings.System.getInt(mContentResolver, Settings.System.AUTO_HIDE_STATUSBAR, 0);
         mStatusBarHide = (ListPreference) findPreference(PREF_STATUSBAR_HIDDEN);
-        mStatusBarHide.setValue(String.valueOf(HiddenStatus));
-                mStatusBarHide.setSummary(mStatusBarHide.getEntry());
+        int StatusBarHide = Settings.System.getInt(getActivity().getContentResolver(), 
+                               Settings.System.AUTO_HIDE_STATUSBAR, 0);
+        mStatusBarHide.setValue(Integer.toString(StatusBarHide));
+        mStatusBarHide.setSummary(mStatusBarHide.getEntry());
         mStatusBarHide.setOnPreferenceChangeListener(this);
 
         mHiddenStatusbarPulldown = (CheckBoxPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN);
@@ -980,7 +980,7 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             mStatusBarHide.setSummary(mStatusBarHide.getEntries()[index]);
             Helpers.restartSystemUI();
             return true;
-        } else if (mHiddenStatusbarPulldown.equals(preference)) {
+        } else if (preference == mHiddenStatusbarPulldown) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HIDDEN_STATUSBAR_PULLDOWN,
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
