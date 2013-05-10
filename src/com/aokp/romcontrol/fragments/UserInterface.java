@@ -547,6 +547,11 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
                     Settings.System.SYSTEM_POWER_ENABLE_CRT_OFF,
                     ((TwoStatePreference) preference).isChecked());
             return true;
+        } else if (preference == mHiddenStatusbarPulldown) {
+            Settings.System.putBoolean(mContentResolver,
+                    Settings.System.HIDDEN_STATUSBAR_PULLDOWN, checked);
+            Helpers.restartSystemUI();
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -973,17 +978,11 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             mCrtMode.setSummary(mCrtMode.getEntries()[index]);
             return true;
         } else if (preference == mStatusBarHide) {
-            String val = (String) newValue;
-                     Settings.System.putInt(mContentResolver, Settings.System.AUTO_HIDE_STATUSBAR,
-            Integer.valueOf(val));
+            int StatusBarHide = Integer.valueOf((String) newValue);
+                     Settings.System.putInt(getActivity().getContentResolver(), 
+                             Settings.System.AUTO_HIDE_STATUSBAR, val);
             int index = mStatusBarHide.findIndexOfValue(val);
             mStatusBarHide.setSummary(mStatusBarHide.getEntries()[index]);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mHiddenStatusbarPulldown) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HIDDEN_STATUSBAR_PULLDOWN,
-                    ((Boolean) newValue).booleanValue() ? 1 : 0);
             Helpers.restartSystemUI();
             return true;
         } else if (preference == mHiddenStatusbarPulldownTimeout) {
