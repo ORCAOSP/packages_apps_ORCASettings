@@ -882,9 +882,9 @@
         <item>6</item>
     </string-array>
     <!-- Hidden Statusbar-->
-    <string-array name="hidden_statusbar_entries">
-        <item>Visible for Notifications</item>
-        <item>Always Hidden</item>
+    <string-array name="hidden_statusbar_entries" translatable="false">
+        <item>@string/statusbar_notifications</item>
+        <item>@string/statusbar_hidden</item>
     </string-array>
     <string-array name="hidden_statusbar_values" translatable="false">
         <item>0</item>
