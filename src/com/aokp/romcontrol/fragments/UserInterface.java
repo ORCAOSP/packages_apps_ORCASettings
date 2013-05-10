@@ -158,8 +158,6 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     String mCustomLabelText = null;
     int mUserRotationAngles = -1;
 
-    private boolean isStatusBarHideChecked = false;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -249,8 +247,6 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
         mHiddenStatusbarPulldown = (CheckBoxPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN);
         mHiddenStatusbarPulldown.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HIDDEN_STATUSBAR_PULLDOWN, 0) == 1);
-        mHiddenStatusbarPulldown.setEnabled(isStatusBarHideChecked);
-        mHiddenStatusbarPulldown.setOnPreferenceChangeListener(this);
 
         mHiddenStatusbarPulldownTimeout = (ListPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT);
         mHiddenStatusbarPulldownTimeout.setOnPreferenceChangeListener(this);
