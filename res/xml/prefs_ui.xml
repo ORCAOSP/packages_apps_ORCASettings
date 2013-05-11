@@ -55,11 +55,10 @@
             android:title="@string/brightness_slider_title"
             android:summary="@string/brightness_slider_summary" />
 
-        <ListPreference
+        <CheckBoxPreference
             android:key="statusbar_hidden"
             android:title="@string/statusbar_hide_title"
-            android:entries="@array/hidden_statusbar_entries"
-            android:entryValues="@array/hidden_statusbar_values" />
+            android:summary="@string/statusbar_hide_summary" />
 
         <CheckBoxPreference
             android:key="hidden_statusbar_pulldown"
