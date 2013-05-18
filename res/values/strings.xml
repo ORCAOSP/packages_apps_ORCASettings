@@ -389,8 +389,8 @@
     <string name="hide_signal_summary">Checking this hides the signal bar indicator (updates when signal strength changes)</string>
     <string name="wifi_signal_style">WiFi signal indicator style</string>
     <string name="wifi_signal_color_title">WiFi signal text color</string>
-    <string name="alt_signal_title">Hide signal</string>
-    <string name="alt_signal_summary">Will hide WiFi and Mobile signal</string>
+    <string name="alt_signal_title">Use Alt Signal</string>
+    <string name="alt_signal_summary">Use old gingerbread look instead</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
