@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ROM Control</string>
+    <string name="app_name">Bigfoot Settings</string>
 
     <!-- Header Strings -->
     <string name="user_interface">Interfejs</string>
@@ -28,7 +28,6 @@
     <string name="performance">Wydajność</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
-    <string name="title_about">O AOKP...</string>
     <string name="title_ui">Ogólny interfejs użytkownika</string>
     <string name="title_statusbar_clock">Zegarek paska statusu</string>
     <string name="title_statusbar_toggles">Przełączniki paska statusu</string>
@@ -113,18 +112,6 @@
     <string name="use_custom_app_summary">Użyj niestandardowej aplikacji zamiast systemowego menedżera zadań</string>
     <string name="select_custom_app_title">Wybierz niestandardową aplikację</string>
     <string name="group_applications">Aplikacje</string>
-
-    <!-- About -->
-    <string name="devs">Developerzy</string>
-    <string name="aokp">Android Open Kang Project</string>
-    <string name="aokp_website_title">Strona www AOKP</string>
-    <string name="aokp_website_summary">www.aokp.co - Tutaj są wszystkie nowe wydania.</string>
-    <string name="aokp_review_title">AOKP Gerrit</string>
-    <string name="aokp_review_summary">Gerrit AOKP dla developerów zawierający patche i zmiany</string>
-    <string name="aokp_irc_title">Dołącz do nas na IRC</string>
-    <string name="aokp_irc_summary">#teamkang @ irc.freenode.net</string>
-    <string name="about_aokp">O AOKP...</string>
-    <string name="about_aokp_summary">@null</string>
 
     <!-- General UI -->
     <string name="bootani_cat">Boot Animacja</string>

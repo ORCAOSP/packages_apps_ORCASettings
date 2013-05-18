@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Impostazioni ROM</string>
+  <string name="app_name">Bigfoot Settings</string>
   <!--Header Strings-->
   <string name="user_interface">Interfaccia</string>
   <string name="cancel">Annulla</string>
@@ -23,7 +23,6 @@
   <string name="tools">Strumenti</string>
   <string name="performance">Performance</string>
   <!--Activity titles defined in AndroidManifest.xml-->
-  <string name="title_about">Su AOKP</string>
   <string name="title_ui">Interfaccia utente generale</string>
   <string name="title_statusbar_clock">Orologio della barra di stato</string>
   <string name="title_statusbar_toggles">Interruttori della barra di stato</string>
@@ -76,17 +75,6 @@
   <string name="use_custom_app_summary">Usa un\'applicazione personalizzata della finestra applicazioni recenti</string>
   <string name="select_custom_app_title">Scegli un\'applicazione personalizzata</string>
   <string name="group_applications">Applicazioni</string>
-  <!--About-->
-  <string name="devs">Il Team</string>
-  <string name="aokp">Android Open Kang Project</string>
-  <string name="aokp_website_title">Sito AOKP</string>
-  <string name="aokp_website_summary">www.aokp.co - Trova tutte le nuove release qui.</string>
-  <string name="aokp_review_title">Revisione sorgenti AOKP</string>
-  <string name="aokp_review_summary">Instanza GERRIT per la revisione e l\'invio del codice</string>
-  <string name="aokp_irc_title">Raggiungici su IRC</string>
-  <string name="aokp_irc_summary">#teamkang @ irc.freenode.net</string>
-  <string name="about_aokp">Su AOKP</string>
-  <string name="about_aokp_summary">@null</string>
   <!--General UI-->
   <string name="bootani_cat">Bootanimation</string>
   <string name="navbar_cat">Navigation bar</string>

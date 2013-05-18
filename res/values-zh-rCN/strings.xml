@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ROM控制</string>
+    <string name="app_name">Bigfoot Settings</string>
 
     <!-- Header Strings 标题文本 -->
     <string name="user_interface">界面</string>
@@ -29,7 +29,6 @@
     <string name="installer">安装器</string>
 
     <!-- Activity titles defined in AndroidManifest.xml Activity标题 -->
-    <string name="title_about">关于 AOKP</string>
     <string name="title_ui">常规界面设置</string>
     <string name="title_statusbar_clock">状态栏时钟</string>
     <string name="title_statusbar_toggles">状态栏开关</string>
@@ -131,15 +130,6 @@
     <string name="use_custom_app_summary">使用自定义程序代替近期使用程序列表</string>
     <string name="select_custom_app_title">选择自定义程序</string>
     <string name="group_applications">应用程序</string>
-
-    <!-- About 关于 -->
-    <string name="devs">开发团队</string>
-    <string name="aokp_website_title">AOKP 网站</string>
-    <string name="aokp_website_summary">www.aokp.co - 在这里可以找到最新发布的消息</string>
-    <string name="aokp_review_title">AOKP 代码评审平台</string>
-    <string name="aokp_review_summary">AOKP 的 Gerrit ，用于评审提交代码和测试补丁</string>
-    <string name="aokp_irc_title">加入我们的 IRC 聊天室</string>
-    <string name="about_aokp">关于 AOKP</string>
 
     <!-- General UI 常规界面 -->
     <string name="bootani_cat">开机动画</string>

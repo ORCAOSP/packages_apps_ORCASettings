@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ROM Control</string>
+    <string name="app_name">Bigfoot Settings</string>
 
     <!-- Header Strings -->
     <string name="user_interface">Interface</string>
@@ -26,7 +26,6 @@
     <string name="performance">Ydeevne</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
-    <string name="title_about">Om AOKP</string>
     <string name="title_ui">Generel Bruger Interface</string>
     <string name="title_statusbar_clock">Statusbar Ur</string>
     <string name="title_statusbar_toggles">Statusbar Toggles</string>
@@ -89,18 +88,6 @@
     <string name="use_custom_app_summary">Brug alternativ app i stedet for standard nylige apps dialog</string>
     <string name="select_custom_app_title">Vælg alternativ app</string>
     <string name="group_applications">Programmer</string>
-
-    <!-- About -->
-    <string name="devs">Holdet</string>
-    <string name="aokp">Android Open Kang Project</string>
-    <string name="aokp_website_title">AOKP Website</string>
-    <string name="aokp_website_summary">www.aokp.co - Find alle de nyeste versioner her.</string>
-    <string name="aokp_review_title">AOKP Code Review</string>
-    <string name="aokp_review_summary">AOKP\'s Gerrit Review eksempel til indsendelse og test af patches</string>
-    <string name="aokp_irc_title">Besøg os på IRC</string>
-    <string name="aokp_irc_summary">#teamkang @ irc.freenode.net</string>
-    <string name="about_aokp">Om AOKP</string>
-    <string name="about_aokp_summary">@null</string>
 
     <!-- General UI -->
     <string name="bootani_cat">Boot Animation</string>

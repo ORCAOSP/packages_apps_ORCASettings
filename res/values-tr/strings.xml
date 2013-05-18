@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ROM Yönetimi</string>
+    <string name="app_name">Bigfoot Settings</string>
     <string name="user_interface">Arayüz</string>
     <string name="cancel">İptal</string>
     <string name="ok">Tamam</string>
