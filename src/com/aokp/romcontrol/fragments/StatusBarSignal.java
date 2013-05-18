@@ -49,11 +49,12 @@ public class StatusBarSignal extends AOKPPreferenceFragment implements
         mWifiColorPicker.setOnPreferenceChangeListener(this);
 
         mHideSignal = (CheckBoxPreference) findPreference("hide_signal");
-        mHideSignal.setChecked(Settings.System.getBoolean(mContentRes,
-                Settings.System.STATUSBAR_HIDE_SIGNAL_BARS, false));
+        mHideSignal.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUSBAR_HIDE_SIGNAL_BARS,
+                0) != 0);
 
         mAltSignal = (CheckBoxPreference) findPreference("alt_signal");
-        mAltSignal.setChecked(Settings.System.getBoolean(mContentRes,
+        mAltSignal.setChecked(Settings.System.getBoolean(getContentResolver(),
                 Settings.System.STATUSBAR_SIGNAL_CLUSTER_ALT,false));
 
         if (Integer.parseInt(mDbmStyletyle.getValue()) == 0) {
