@@ -390,7 +390,7 @@
     <string name="wifi_signal_style">WiFi signal indicator style</string>
     <string name="wifi_signal_color_title">WiFi signal text color</string>
     <string name="alt_signal_title">Use Alt Signal</string>
-    <string name="alt_signal_summary">Use old gingerbread look instead</string>
+    <string name="alt_signal_summary">Will hide/apply gb signal</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
