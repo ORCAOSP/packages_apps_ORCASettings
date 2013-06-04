@@ -87,5 +87,15 @@
             android:key="custom_toggle_pref" />
 
     </PreferenceCategory>
+    <ListPreference
+       android:entries="@array/quicksettings_theme_style_entries"
+       android:entryValues="@array/quicksettings_theme_style_values"
+       android:key="quick_theme_style"
+       android:title="@string/quicksettings_theme_style"
+       android:summary="@string/quicksettings_theme_style_summary" />
 
+    <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="quick_text_color"
+            android:title="@string/quick_text_color_title"
+            android:defaultValue="#ffcccccc" />
 </PreferenceScreen>
