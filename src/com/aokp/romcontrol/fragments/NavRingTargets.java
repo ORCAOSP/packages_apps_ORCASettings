@@ -308,7 +308,7 @@ public class NavRingTargets extends AOKPPreferenceFragment implements
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.profile_reset_title)
-            .setIcon(R.drawable.ic_settings_backup)
+            .setIcon(R.drawable.ic_action_backup)
             .setAlphabeticShortcut('r')
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM |
                 MenuItem.SHOW_AS_ACTION_WITH_TEXT);

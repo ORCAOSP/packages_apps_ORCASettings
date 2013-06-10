@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
@@ -36,8 +37,10 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Button;
 
+import com.aokp.romcontrol.R;
+
 /**
- * Base class for Settings fragments, with some helper functions and dialog management.
+ * Base class for Settings fragments, with some helper functions and dialog management
  */
 public class AOKPPreferenceFragment extends PreferenceFragment implements DialogCreatable {
 
@@ -62,8 +65,10 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
         hasFastCharge = getResources().getBoolean(R.bool.has_fast_charge);
         hasColorTuning = getResources().getBoolean(R.bool.has_color_tuning);
         mContext = getActivity();
-        mActionBar = getActivity().getActionBar();
         mContentRes = getActivity().getContentResolver();
+        mActionBar = getActivity().getActionBar();
+        Drawable d = getResources().getDrawable(R.drawable.ab_background);  
+        getActivity().getActionBar().setBackgroundDrawable(d);
         if(getArguments() != null) {
             mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
         }
