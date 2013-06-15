@@ -77,6 +77,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     private static final String TAG = "TogglesLayout";
 
     private static final String PREF_ENABLE_TOGGLES = "enabled_toggles";
+    private static final String PREF_COLLAPSE_ALL = "collapse_shade_all";
     private static final String PREF_TOGGLES_PER_ROW = "toggles_per_row";
     private static final String PREF_TOGGLES_STYLE = "toggles_style";
     private static final String PREF_TOGGLE_FAV_CONTACT = "toggle_fav_contact";
@@ -102,6 +103,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
 
     Preference mEnabledToggles;
     Preference mLayout;
+    CheckBoxPreference mCollapseAll;
     ListPreference mTogglesPerRow;
     ListPreference mTogglesStyle;
     Preference mFavContact;
@@ -144,7 +146,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             }
         };
         mContext.registerReceiver(mReceiver,
-                new IntentFilter("com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
+                new IntentFilter(
+                        "com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
         requestAvailableToggles();
         setTitle(R.string.title_statusbar_toggles);
         // Load the preferences from an XML resource
@@ -163,6 +166,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
         }
 
         mEnabledToggles = findPreference(PREF_ENABLE_TOGGLES);
+
+        mCollapseAll = (CheckBoxPreference) findPreference(PREF_COLLAPSE_ALL);
+        mCollapseAll.setOnPreferenceChangeListener(this);
 
         mTogglesPerRow = (ListPreference) findPreference(PREF_TOGGLES_PER_ROW);
         mTogglesPerRow.setOnPreferenceChangeListener(this);
@@ -258,7 +264,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private void requestAvailableToggles() {
-        Intent request = new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
+        Intent request =
+                new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
         mContext.sendBroadcast(request);
     }
 
@@ -268,6 +275,12 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContentRes,
                     Settings.System.QUICK_TOGGLES_PER_ROW, val);
+        } else if (preference == mCollapseAll) {
+            boolean val = (Boolean) newValue;
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.SHADE_COLLAPSE_ALL, val);
+            mContentRes.notifyChange(Settings.System.getUriFor(Settings.System.SHADE_COLLAPSE_ALL), null);
+            return true;
         } else if (preference == mTogglesStyle) {
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(mContentRes,
@@ -378,8 +391,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                             String toggleKey = availableToggles.get(which);
                             if (isChecked) {
                                 StatusBarToggles.addToggle(getActivity(), toggleKey);
-                            }
-                            else {
+                            } else {
                                 StatusBarToggles.removeToggle(getActivity(), toggleKey);
                             }
                         }
@@ -617,16 +629,18 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     private Drawable setIcon(String uri, String action) {
         if (uri != null && uri.length() > 0) {
             File f = new File(Uri.parse(uri).getPath());
-            if (f.exists())
+            if (f.exists()) {
                 return resize(new BitmapDrawable(mResources, f.getAbsolutePath()));
+            }
         }
         if (uri != null && !uri.equals("")
                 && uri.startsWith("file")) {
             // it's an icon the user chose from the gallery here
             File icon = new File(Uri.parse(uri).getPath());
-            if (icon.exists())
+            if (icon.exists()) {
                 return resize(new BitmapDrawable(mResources, icon
                         .getAbsolutePath()));
+            }
 
         } else if (uri != null && !uri.equals("")) {
             // here they chose another app icon
@@ -643,8 +657,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private Drawable getNavbarIconImage(String uri) {
-        if (uri == null)
+        if (uri == null) {
             uri = AwesomeConstant.ACTION_NULL.value();
+        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getActionIcon(mContext, uri);
         } else {
@@ -690,7 +705,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_CONTACT) {
                 Uri contactData = data.getData();
-                String[] projection = new String[] {
+                String[] projection = new String[]{
                         ContactsContract.Contacts.LOOKUP_KEY
                 };
                 String selection = ContactsContract.Contacts.DISPLAY_NAME + " IS NOT NULL";
@@ -738,8 +753,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                         new File(mContext.getFilesDir(), iconName)).getPath());
 
                 File f = new File(selectedImageUri.getPath());
-                if (f.exists())
+                if (f.exists()) {
                     f.delete();
+                }
                 refreshButtons();
             }
         }
@@ -747,8 +763,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private String getProperSummary(String uri) {
-        if (uri == null)
+        if (uri == null) {
             return AwesomeConstants.getProperName(mContext, "**null**");
+        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getProperName(mContext, uri);
         } else {
