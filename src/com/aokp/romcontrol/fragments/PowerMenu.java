@@ -22,6 +22,7 @@ public class PowerMenu extends AOKPPreferenceFragment implements OnPreferenceCha
     private static final String PREF_NAVBAR_HIDE = "show_navbar_hide";
     private static final String PREF_VOLUME_STATE_TOGGLE = "show_volume_state_toggle";
     private static final String PREF_PROFILES_TOGGLE = "show_profiles_toggle";
+    private static final String PREF_EXPANDED_TOGGLE = "show_expanded_desktop";
     private static final String PREF_REBOOT_KEYGUARD = "show_reboot_keyguard";
 
     //SwitchPreference mShowPowerSaver;
@@ -31,6 +32,7 @@ public class PowerMenu extends AOKPPreferenceFragment implements OnPreferenceCha
     SwitchPreference mShowNavBarHide;
     SwitchPreference mShowVolumeStateToggle;
     SwitchPreference mShowProfilesToggle;
+    SwitchPreference mShowExpandedToggle;
     SwitchPreference mShowRebootKeyguard;
 
     @Override
@@ -48,7 +50,8 @@ public class PowerMenu extends AOKPPreferenceFragment implements OnPreferenceCha
         } catch (SettingNotFoundException e) {
             mShowPowerSaver.setEnabled(false);
             mShowPowerSaver
-                    .setSummary("You need to enable power saver before you can see it in the power menu.");
+                    .setSummary("You need to enable power saver before you can see it in the
+                    power menu.");
         }
         mShowPowerSaver.setChecked(powerSaverVal != 0);
         mShowPowerSaver.setOnPreferenceChangeListener(this); */
@@ -82,6 +85,11 @@ public class PowerMenu extends AOKPPreferenceFragment implements OnPreferenceCha
         mShowProfilesToggle.setChecked(Settings.System.getBoolean(mContentRes,
                 Settings.System.POWER_DIALOG_SHOW_PROFILES_TOGGLE, true));
         mShowProfilesToggle.setOnPreferenceChangeListener(this);
+
+        mShowExpandedToggle = (SwitchPreference) findPreference(PREF_EXPANDED_TOGGLE);
+        mShowExpandedToggle.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED, true));
+        mShowExpandedToggle.setOnPreferenceChangeListener(this);
 
         mShowRebootKeyguard = (SwitchPreference) findPreference(PREF_REBOOT_KEYGUARD);
         mShowRebootKeyguard.setChecked(Settings.System.getBoolean(mContentRes,
@@ -125,6 +133,11 @@ public class PowerMenu extends AOKPPreferenceFragment implements OnPreferenceCha
         } else if (preference == mShowProfilesToggle) {
             Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_PROFILES_TOGGLE,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mShowExpandedToggle) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED,
                     (Boolean) value);
             return true;
         } else if (preference == mShowRebootKeyguard) {

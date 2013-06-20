@@ -4,10 +4,10 @@
     <SwitchPreference
         android:key="show_screenshot"
         android:title="@string/title_show_screenshot" />
-<!--
-    <SwitchPreference android:key="show_power_saver"
-        android:title="@string/title_show_power_saver" />
--->
+    <!--
+        <SwitchPreference android:key="show_power_saver"
+            android:title="@string/title_show_power_saver" />
+    -->
     <SwitchPreference
         android:key="show_torch_toggle"
         android:title="@string/title_show_torch_toggle" />
@@ -19,10 +19,15 @@
     <SwitchPreference
         android:key="show_volume_state_toggle"
         android:title="@string/title_show_volume_state_toggle" />
-        
-     <SwitchPreference
+
+    <SwitchPreference
         android:key="show_profiles_toggle"
-        android:title="@string/title_show_profiles_toggle" />      
+        android:title="@string/title_show_profiles_toggle" />
+
+    <SwitchPreference
+	android:key="show_expanded_desktop"
+	android:title="@string/title_show_expanded_desktop"
+        android:summary="@string/summary_show_expanded_desktop" />
 
     <SwitchPreference
         android:key="show_navbar_hide"
