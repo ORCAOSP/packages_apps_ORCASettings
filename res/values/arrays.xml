@@ -230,14 +230,15 @@
         <item>@string/text_only</item>
         <item>@string/icon_with_text</item>
         <item>@string/icon_with_centered_text</item>
-        <item>@string/rb_battery1</item>
-        <item>@string/rb_battery2</item>
-        <item>@string/rb_battery3</item>
-        <item>@string/rb_battery4</item>
-        <item>@string/rb_battery5</item>
-        <item>@string/rb_battery6</item>
-        <item>@string/rb_battery7</item>
-        <item>@string/rb_battery8</item>
+        <item>@string/battery1</item>
+        <item>@string/battery2</item>
+        <item>@string/battery3</item>
+        <item>@string/battery4</item>
+        <item>@string/battery5</item>
+        <item>@string/battery6</item>
+        <item>@string/battery7</item>
+        <item>@string/battery8</item>
+        <item>@string/battery9</item>
         <item>@string/dont_show</item>
     </string-array>
     <string-array name="battery_icon_values" translatable="false">
@@ -254,6 +255,7 @@
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>13</item>
     </string-array>
 
     <!-- NavBar -->

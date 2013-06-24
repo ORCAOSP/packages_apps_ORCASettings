@@ -863,15 +863,15 @@
     <!-- Battery styles -->
     <string name="icon_with_text">Icon with text</string>
     <string name="icon_with_centered_text">Icon with centered text</string>
-    <string name="rb_battery1">Circle</string>
-    <string name="rb_battery2">Square</string>
-    <string name="rb_battery3">Speedo</string>
-    <string name="rb_battery4">Racing</string>
-    <string name="rb_battery5">Gauge</string>
-    <string name="rb_battery6">Planet</string>
-    <string name="rb_battery7">Slider</string>
-    <string name="rb_battery8">Brick</string>
-
+    <string name="battery1">Circle</string>
+    <string name="battery2">Square</string>
+    <string name="battery3">Speedo</string>
+    <string name="battery4">Racing</string>
+    <string name="battery5">Gauge</string>
+    <string name="battery6">Planet</string>
+    <string name="battery7">Slider</string>
+    <string name="battery8">Brick</string>
+    <string name="battery9">Rush</string>
 
     <!-- NavBar -->
     <string name="right">Right</string>
