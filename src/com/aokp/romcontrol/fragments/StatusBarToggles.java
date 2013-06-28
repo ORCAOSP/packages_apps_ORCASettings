@@ -59,8 +59,8 @@ import com.android.internal.util.aokp.NavBarHelpers;
 import com.aokp.romcontrol.AOKPPreferenceFragment;
 import com.aokp.romcontrol.R;
 import com.aokp.romcontrol.objects.EasyPair;
-import com.aokp.romcontrol.util.ShortcutPickerHelper;
 import com.aokp.romcontrol.util.Helpers;
+import com.aokp.romcontrol.util.ShortcutPickerHelper;
 import com.aokp.romcontrol.widgets.CustomTogglePref;
 
 import java.io.File;
@@ -156,7 +156,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             }
         };
         mContext.registerReceiver(mReceiver,
-                new IntentFilter("com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
+                new IntentFilter(
+                        "com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
         requestAvailableToggles();
         setTitle(R.string.title_statusbar_toggles);
         // Load the preferences from an XML resource
@@ -284,7 +285,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private void requestAvailableToggles() {
-        Intent request = new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
+        Intent request =
+                new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
         mContext.sendBroadcast(request);
     }
 
@@ -436,8 +438,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                             String toggleKey = availableToggles.get(which);
                             if (isChecked) {
                                 StatusBarToggles.addToggle(getActivity(), toggleKey);
-                            }
-                            else {
+                            } else {
                                 StatusBarToggles.removeToggle(getActivity(), toggleKey);
                             }
                         }
@@ -700,16 +701,18 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     private Drawable setIcon(String uri, String action) {
         if (uri != null && uri.length() > 0) {
             File f = new File(Uri.parse(uri).getPath());
-            if (f.exists())
+            if (f.exists()) {
                 return resize(new BitmapDrawable(mResources, f.getAbsolutePath()));
+            }
         }
         if (uri != null && !uri.equals("")
                 && uri.startsWith("file")) {
             // it's an icon the user chose from the gallery here
             File icon = new File(Uri.parse(uri).getPath());
-            if (icon.exists())
+            if (icon.exists()) {
                 return resize(new BitmapDrawable(mResources, icon
                         .getAbsolutePath()));
+            }
 
         } else if (uri != null && !uri.equals("")) {
             // here they chose another app icon
@@ -726,8 +729,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private Drawable getNavbarIconImage(String uri) {
-        if (uri == null)
+        if (uri == null) {
             uri = AwesomeConstant.ACTION_NULL.value();
+        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getActionIcon(mContext, uri);
         } else {
@@ -773,7 +777,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_CONTACT) {
                 Uri contactData = data.getData();
-                String[] projection = new String[] {
+                String[] projection = new String[]{
                         ContactsContract.Contacts.LOOKUP_KEY
                 };
                 String selection = ContactsContract.Contacts.DISPLAY_NAME + " IS NOT NULL";
@@ -821,8 +825,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                         new File(mContext.getFilesDir(), iconName)).getPath());
 
                 File f = new File(selectedImageUri.getPath());
-                if (f.exists())
+                if (f.exists()) {
                     f.delete();
+                }
                 refreshButtons();
             }
         }
@@ -830,8 +835,9 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private String getProperSummary(String uri) {
-        if (uri == null)
+        if (uri == null) {
             return AwesomeConstants.getProperName(mContext, "**null**");
+        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getProperName(mContext, uri);
         } else {
@@ -945,6 +951,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             mLongPressFriendlyName = getProperSummary(mLongPressAction);
             checkEmptyClick();
         }
+
         public void setClickAction(String click) {
             mClickAction = click;
             mClickFriendlyName = getProperSummary(mClickAction);
@@ -1051,14 +1058,16 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             }
         }
 
-        if (currentToggles == null)
+        if (currentToggles == null) {
             currentToggles = "";
+        }
         if (currentToggles != null) {
             if (mFavContact != null) {
                 mFavContact.setEnabled(currentToggles.contains("FAVCONTACT") || favoriteRibbon);
             }
             if (mScreenshotDelay != null) {
-                mScreenshotDelay.setEnabled(currentToggles.contains("SCREENSHOT") || screenshotRibbon);
+                mScreenshotDelay
+                        .setEnabled(currentToggles.contains("SCREENSHOT") || screenshotRibbon);
             }
             if (mCustomCat != null && mCustomButtons != null) {
                 boolean enabled = currentToggles.contains("CUSTOM") || customRibbon;
