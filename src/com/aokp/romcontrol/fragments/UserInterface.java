@@ -86,7 +86,7 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     private static final CharSequence PREF_SHOW_OVERFLOW = "show_overflow";
     private static final CharSequence PREF_VIBRATE_NOTIF_EXPAND = "vibrate_notif_expand";
     private static final CharSequence PREF_LONGPRESS_TO_KILL = "longpress_to_kill";
-    private static final String PREF_RECENTS_RAM_BAR = "recents_ram_bar";
+    private static final CharSequence PREF_RAM_USAGE_BAR = "ram_usage_bar";
     private static final CharSequence PREF_IME_SWITCHER = "ime_switcher";
     private static final CharSequence PREF_STATUSBAR_BRIGHTNESS = "statusbar_brightness_slider";
     //private static final CharSequence PREF_USER_MODE_UI = "user_mode_ui";
@@ -122,12 +122,12 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
     Preference mWallpaperAlpha;
     Preference mCustomLabel;
     Preference mCustomBootAnimation;
-    Preference mRamBar;
     ImageView mView;
     TextView mError;
     CheckBoxPreference mShowActionOverflow;
     CheckBoxPreference mVibrateOnExpand;
     CheckBoxPreference mLongPressToKill;
+    CheckBoxPreference mRamBar;
     CheckBoxPreference mShowImeSwitcher;
     CheckBoxPreference mStatusbarSliderPreference;
     AlertDialog mCustomBootAnimationDialog;
@@ -221,6 +221,10 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             getPreferenceScreen().removePreference(((PreferenceGroup) findPreference(PREF_MISC)));
         }
 
+        mRamBar = (CheckBoxPreference) findPreference(PREF_RAM_USAGE_BAR);
+        mRamBar.setChecked(Settings.System.getBoolean(mContentResolver,
+                Settings.System.RAM_USAGE_BAR, false));
+
         mHideExtras = (CheckBoxPreference) findPreference(PREF_HIDE_EXTRAS);
         mHideExtras.setChecked(Settings.System.getBoolean(mContentResolver,
                         Settings.System.HIDE_EXTRAS_SYSTEM_BAR, false));
@@ -282,28 +286,9 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             mHideExtras.setEnabled(false);
         }
 
-        mRamBar = findPreference(PREF_RECENTS_RAM_BAR);
-        updateRamBar();
-
         setHasOptionsMenu(true);
         resetBootAnimation();
         findWallpaperStatus();
-        updateRamBar();
-    }
-
-    @Override
-    public void onPause() {
-        super.onResume();
-        updateRamBar();
-    }
-
-    private void updateRamBar() {
-        int ramBarMode = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.RECENTS_RAM_BAR_MODE, 0);
-        if (ramBarMode != 0)
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_enabled));
-        else
-            mRamBar.setSummary(getResources().getString(R.string.ram_bar_color_disabled));
     }
 
     @Override
@@ -531,6 +516,11 @@ public class UserInterface extends AOKPPreferenceFragment implements OnPreferenc
             boolean checked = ((TwoStatePreference) preference).isChecked();
             Settings.System.putBoolean(mContentResolver,
                     Settings.System.KILL_APP_LONGPRESS_BACK, checked);
+            return true;
+        } else if (preference == mRamBar) {
+            boolean checked = ((TwoStatePreference) preference).isChecked();
+            Settings.System.putBoolean(mContentResolver,
+                    Settings.System.RAM_USAGE_BAR, checked);
             return true;
         } else if (preference == mWakeUpWhenPluggedOrUnplugged) {
             Settings.System.putBoolean(mContentResolver,
