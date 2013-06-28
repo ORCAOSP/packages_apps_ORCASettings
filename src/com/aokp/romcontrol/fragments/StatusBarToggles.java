@@ -59,8 +59,8 @@ import com.android.internal.util.aokp.NavBarHelpers;
 import com.aokp.romcontrol.AOKPPreferenceFragment;
 import com.aokp.romcontrol.R;
 import com.aokp.romcontrol.objects.EasyPair;
-import com.aokp.romcontrol.util.Helpers;
 import com.aokp.romcontrol.util.ShortcutPickerHelper;
+import com.aokp.romcontrol.util.Helpers;
 import com.aokp.romcontrol.widgets.CustomTogglePref;
 
 import java.io.File;
@@ -70,8 +70,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import net.margaritov.preference.colorpicker.ColorPickerView;
 
 public class StatusBarToggles extends AOKPPreferenceFragment implements
         OnPreferenceChangeListener, ShortcutPickerHelper.OnPickListener {
@@ -92,11 +90,6 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     private static final String PREF_CUSTOM_TOGGLE = "custom_toggle_pref";
     private static final String PREF_CUSTOM_CAT = "custom_toggle";
     private static final String PREF_CUSTOM_BUTTONS = "custom_buttons";
-    private static final String PREF_TILE_BACKGROUND_STYLE = "tile_background_style";
-    private static final String PREF_TILE_BACKGROUND_COLOR = "tile_background_color";
-    private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
-    private static final String PREF_TILE_TEXT_COLOR = "tile_text_color";
-    private static final String PREF_RANDOM_COLORS = "random_colors";
 
     private final int PICK_CONTACT = 1;
 
@@ -122,11 +115,6 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     CustomTogglePref mCustomToggles;
     PreferenceGroup mCustomCat;
     PreferenceGroup mCustomButtons;
-    ListPreference mTileBgStyle;
-    ColorPickerPreference mTileBgColor;
-    ColorPickerPreference mTileBgPresColor;
-    ColorPickerPreference mTileTextColor;
-    Preference mRandomColors;
 
     BroadcastReceiver mReceiver;
     ArrayList<String> mToggles;
@@ -156,8 +144,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             }
         };
         mContext.registerReceiver(mReceiver,
-                new IntentFilter(
-                        "com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
+                new IntentFilter("com.android.systemui.statusbar.toggles.ACTION_BROADCAST_TOGGLES"));
         requestAvailableToggles();
         setTitle(R.string.title_statusbar_toggles);
         // Load the preferences from an XML resource
@@ -226,20 +213,6 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
         mCustomCat = (PreferenceGroup) findPreference(PREF_CUSTOM_CAT);
         mCustomButtons = (PreferenceGroup) findPreference(PREF_CUSTOM_BUTTONS);
 
-        mRandomColors = (Preference) findPreference(PREF_RANDOM_COLORS);
-
-        mTileBgStyle = (ListPreference) findPreference(PREF_TILE_BACKGROUND_STYLE);
-        mTileBgStyle.setOnPreferenceChangeListener(this);
-
-        mTileBgColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_COLOR);
-        mTileBgColor.setOnPreferenceChangeListener(this);
-
-        mTileBgPresColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_PRESSED_COLOR);
-        mTileBgPresColor.setOnPreferenceChangeListener(this);
-
-        mTileTextColor = (ColorPickerPreference) findPreference(PREF_TILE_TEXT_COLOR);
-        mTileTextColor.setOnPreferenceChangeListener(this);
-
         if (isSW600DPScreen(mContext) || isTablet(mContext)) {
             getPreferenceScreen().removePreference(mFastToggle);
             getPreferenceScreen().removePreference(mChooseFastToggleSide);
@@ -285,8 +258,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private void requestAvailableToggles() {
-        Intent request =
-                new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
+        Intent request = new Intent("com.android.systemui.statusbar.toggles.ACTION_REQUEST_TOGGLES");
         mContext.sendBroadcast(request);
     }
 
@@ -347,38 +319,6 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             Settings.System.putInt(mContentRes,
                     Settings.System.DCLICK_TOGGLE_REVERT, val);
             return true;
-        } else if (preference == mTileBgColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileBgPresColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_PRESSED_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_TEXT_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileBgStyle) {
-            int val = Integer.valueOf((String) newValue);
-            int index = mTileBgStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mContentAppRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, val);
-            updateVisibility();
-            Helpers.restartSystemUI();
-            return true;
         }
         return true;
     }
@@ -438,7 +378,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                             String toggleKey = availableToggles.get(which);
                             if (isChecked) {
                                 StatusBarToggles.addToggle(getActivity(), toggleKey);
-                            } else {
+                            }
+                            else {
                                 StatusBarToggles.removeToggle(getActivity(), toggleKey);
                             }
                         }
@@ -468,33 +409,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                         }
                     });
             ad.show();
-       } else if (preference == mRandomColors) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            RandomColors fragment = new RandomColors();
-            ft.addToBackStack("pick_random_colors");
-            ft.replace(this.getId(), fragment);
-            ft.commit();
-            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-    private void updateVisibility() {
-        int visible = Settings.System.getInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
-        if (visible == 2) {
-            mRandomColors.setEnabled(false);
-            mTileBgColor.setEnabled(false);
-            mTileBgPresColor.setEnabled(false);
-        } else if (visible == 1) {
-            mRandomColors.setEnabled(false);
-            mTileBgColor.setEnabled(true);
-            mTileBgPresColor.setEnabled(true);
-        } else {
-            mRandomColors.setEnabled(true);
-            mTileBgColor.setEnabled(false);
-            mTileBgPresColor.setEnabled(true);
-        }
     }
 
     public void refreshSettings() {
@@ -701,18 +617,16 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     private Drawable setIcon(String uri, String action) {
         if (uri != null && uri.length() > 0) {
             File f = new File(Uri.parse(uri).getPath());
-            if (f.exists()) {
+            if (f.exists())
                 return resize(new BitmapDrawable(mResources, f.getAbsolutePath()));
-            }
         }
         if (uri != null && !uri.equals("")
                 && uri.startsWith("file")) {
             // it's an icon the user chose from the gallery here
             File icon = new File(Uri.parse(uri).getPath());
-            if (icon.exists()) {
+            if (icon.exists())
                 return resize(new BitmapDrawable(mResources, icon
                         .getAbsolutePath()));
-            }
 
         } else if (uri != null && !uri.equals("")) {
             // here they chose another app icon
@@ -729,9 +643,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private Drawable getNavbarIconImage(String uri) {
-        if (uri == null) {
+        if (uri == null)
             uri = AwesomeConstant.ACTION_NULL.value();
-        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getActionIcon(mContext, uri);
         } else {
@@ -777,7 +690,7 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_CONTACT) {
                 Uri contactData = data.getData();
-                String[] projection = new String[]{
+                String[] projection = new String[] {
                         ContactsContract.Contacts.LOOKUP_KEY
                 };
                 String selection = ContactsContract.Contacts.DISPLAY_NAME + " IS NOT NULL";
@@ -825,9 +738,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
                         new File(mContext.getFilesDir(), iconName)).getPath());
 
                 File f = new File(selectedImageUri.getPath());
-                if (f.exists()) {
+                if (f.exists())
                     f.delete();
-                }
                 refreshButtons();
             }
         }
@@ -835,9 +747,8 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
     }
 
     private String getProperSummary(String uri) {
-        if (uri == null) {
+        if (uri == null)
             return AwesomeConstants.getProperName(mContext, "**null**");
-        }
         if (uri.startsWith("**")) {
             return AwesomeConstants.getProperName(mContext, uri);
         } else {
@@ -951,7 +862,6 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             mLongPressFriendlyName = getProperSummary(mLongPressAction);
             checkEmptyClick();
         }
-
         public void setClickAction(String click) {
             mClickAction = click;
             mClickFriendlyName = getProperSummary(mClickAction);
@@ -1058,16 +968,14 @@ public class StatusBarToggles extends AOKPPreferenceFragment implements
             }
         }
 
-        if (currentToggles == null) {
+        if (currentToggles == null)
             currentToggles = "";
-        }
         if (currentToggles != null) {
             if (mFavContact != null) {
                 mFavContact.setEnabled(currentToggles.contains("FAVCONTACT") || favoriteRibbon);
             }
             if (mScreenshotDelay != null) {
-                mScreenshotDelay
-                        .setEnabled(currentToggles.contains("SCREENSHOT") || screenshotRibbon);
+                mScreenshotDelay.setEnabled(currentToggles.contains("SCREENSHOT") || screenshotRibbon);
             }
             if (mCustomCat != null && mCustomButtons != null) {
                 boolean enabled = currentToggles.contains("CUSTOM") || customRibbon;
