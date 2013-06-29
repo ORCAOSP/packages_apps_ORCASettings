@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Bigfoot Settings</string>
+    <string name="app_name">ROMコントロール</string>
 
     <!-- Header Strings -->
     <string name="user_interface">インターフェース</string>
@@ -26,8 +26,10 @@
     <string name="title_ribbon">リボン</string>
     <string name="weather">天気情報</string>
     <string name="tools">ツール</string>
+    <string name="installer">インストーラー</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
+    <string name="title_about">AOKPについて</string>
     <string name="title_ui">全般</string>
     <string name="title_statusbar_clock">時計表示</string>
     <string name="title_statusbar_toggles">クイック設定</string>
@@ -43,6 +45,7 @@
     <string name="title_sound">音</string>
     <string name="title_weather">天気情報</string>
     <string name="title_performance">パフォーマンス</string>
+    <string name="title_installer">インストーラー</string>
     <string name="title_clipboard_share">クリップボードに共有</string>
     <string name="mgerrit_activity_name">mGerrit</string>
     <string name="ribbon_settings_title">リボン</string>
@@ -63,11 +66,17 @@
     <string name="header_summary_weather">@null</string>
     <string name="header_summary_vibrations">@null</string>
     <string name="ribbon_settings_summary">@null</string>
+    <string name="header_summary_installer">@null</string>
 
     <!-- Menu Strings -->
     <string name="menu_nav_bar_reset">ナビゲーションバーをリセット</string>
     <string name="menu_ribbon_reset">リボンをリセット</string>
+    <string name="menu_ribbon_apps">アプリをリセット</string>
     <string name="menu_ribbon_rearrange">アイコンの並び替え</string>
+    <string name="menu_ribbon_hide">アプリを隠す</string>
+    <string name="menu_ribbon_toggles">トグル設定</string>
+    <string name="menu_ribbon_na">利用不可</string>
+    <string name="menu_ribbon_toggles_error">トグルは左右のスワイプリボンでしか使えません</string>
     <string name="menu_user_interface_reset">通知パネルの壁紙をリセット</string>
     <string name="menu_lockscreens_reset">ロック画面の壁紙をリセット</string>
 
@@ -78,7 +87,7 @@
     <string name="text_on">オン</string>
     <string name="text_off">オフ</string>
 
-   <!-- Power Menu -->
+    <!-- Power Menu -->
     <string name="title_show_power_saver">省電力モード</string>
     <string name="title_show_screenshot">スクリーンショット</string>
     <string name="title_show_torch_toggle">トーチ</string>
@@ -103,6 +112,15 @@
     <string name="enable_stylus_pointer_title">Sペンポインターを有効</string>
     <string name="enable_stylus_pointer_summary">Sペン使用時にマウスカーソルを有効にする</string>
 
+    <!-- Installer -->
+    <string name="persist_options">データ維持</string>
+    <string name="persist_enable">データ維持</string>
+    <string name="persist_enable_summary">インストールを跨いでデータを維持する</string>
+    <string name="persist_prop_density">画面密度を維持</string>
+    <string name="persist_prop_density_summary">画面密度設定を維持する</string>
+    <string name="persist_file_hosts">hostsを維持</string>
+    <string name="persist_file_hosts_summary">hostsファイルを維持する</string>
+
     <!-- Power Saving -->
     <string name="title_pref_powersaving_pref_mode">省電力設定を有効にする</string>
     <string name="summary_pref_powersaving_pref_mode">@null</string>
@@ -119,6 +137,50 @@
     <string name="select_custom_app_title">アプリの選択</string>
     <string name="group_applications">アプリケーション</string>
 
+    <!-- About -->
+    <string name="devs">開発者</string>
+    <string name="aokp">Android Open Kang Project</string>
+    <string name="aokp_website_title">AOKPウェブサイト</string>
+    <string name="aokp_website_summary">http://aokp.co/\n最新情報を確認する</string>
+    <string name="aokp_review_title">mGerrit</string>
+    <string name="aokp_review_summary">AOKPとAOSPのGerritレビューインスタンスを参照する</string>
+    <string name="aokp_irc_title">IRCに参加</string>
+    <string name="aokp_irc_summary">\#teamkang @ irc.freenode.net</string>
+    <string name="about_aokp">AOKPについて</string>
+    <string name="about_aokp_summary">@null</string>
+    <string name="donate_aokp">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DBBCGTVJ984YG
+    </string>
+    <string name="github_aokp">https://github.com/AOKP</string>
+    <string name="github_adam">https://github.com/syaoran12</string>
+    <string name="github_akellar">https://github.com/akellar</string>
+    <string name="github_bajee11">https://github.com/Bajee11</string>
+    <string name="github_bmc08gt">https://github.com/BMc08GT</string>
+    <string name="github_birdman">https://github.com/mrbirdman</string>
+    <string name="github_championswimmer">https://github.com/championswimmer</string>
+    <string name="github_dhacker29">https://github.com/dhacker29</string>
+    <string name="github_graffixnyc">https://github.com/graffixnyc</string>
+    <string name="github_hashcode">https://github.com/Hashcode</string>
+    <string name="github_hillbillyhacker">https://github.com/hillbillyhacker86</string>
+    <string name="github_jbirdvegas">https://github.com/JBirdVegas</string>
+    <string name="github_jubakuba">https://github.com/Jubakuba</string>
+    <string name="github_k900">https://github.com/K900</string>
+    <string name="github_kecinzer">https://github.com/kecinzer</string>
+    <string name="github_khasmek">https://github.com/KhasMek</string>
+    <string name="github_kwes">https://github.com/kwes1020</string>
+    <string name="github_marclandis">https://github.com/MarcLandis</string>
+    <string name="github_rohan32">https://github.com/rohanmathur</string>
+    <string name="github_roman">https://github.com/romanbb</string>
+    <string name="github_protekk">https://github.com/ProTekk</string>
+    <string name="github_qnhoang81">https://github.com/qnhoang81</string>
+    <string name="github_scar45">https://github.com/scar45</string>
+    <string name="github_sethyx">https://github.com/sethyx</string>
+    <string name="github_sixstringsg">https://github.com/sixstringsg</string>
+    <string name="github_stevespear">https://github.com/Stevespear426</string>
+    <string name="github_tdm">https://github.com/tdm</string>
+    <string name="github_whitehawk">https://github.com/Whitehawkx</string>
+    <string name="github_xoom">https://github.com/xoomdev</string>
+    <string name="github_zaph">https://github.com/Zaphod-Beeblebrox</string>
+
     <!-- General UI -->
     <string name="bootani_cat">ブートアニメーション</string>
     <string name="navbar_cat">ナビゲーションバー</string>
@@ -133,7 +195,9 @@
     <string name="vibrate_notif_expand_summary">通知を展開した時に振動する (UI再起動)</string>
     <string name="disable_bootanimation_title">ブートアニメーションを無効</string>
     <string name="custom_bootanimation_title">ブートアニメーションの変更</string>
-    <string name="custom_bootanimation_summary">SDカードからブートアニメーション用のzipを選択してください。以前のブートアニメーションは/system/mediaにバックアップされます。</string>
+    <string name="custom_bootanimation_summary">
+        SDカードからブートアニメーション用のzipを選択してください。以前のブートアニメーションは/system/mediaにバックアップされます。
+    </string>
     <string name="install_file_manager_error">zipファイルを指定するアプリがありません。ファイルマネージャーをインストールしてください。</string>
     <string name="notification_wallpaper_title">通知パネルの背景の変更</string>
     <string name="notification_wallpaper_summary">通知パネルの背景を元に戻すにはメニューから設定をリセットしてください</string>
@@ -199,6 +263,7 @@
     <string name="transparency_dialog_match_keyguard_alpha">ロック画面の不透明度を合わせる</string>
     <string name="transparency_dialog_transparency">ホーム画面での不透明度</string>
     <string name="transparency_dialog_transparency_keyguard">ロック画面での不透明度</string>
+    <string name="transparency_dialog_lockscreen">ロック画面</string>
 
     <!-- LCD Density -->
     <string name="lcd_density_title">画面密度の変更</string>
@@ -218,7 +283,8 @@
     <string name="dpi">DPI</string>
     <string name="open_market_title">4. Google Playの利用規約に同意</string>
     <string name="open_market_summary">Google Playの利用規約に同意した後にこの画面へ戻り、残りの手順を完了させてください。</string>
-    <string name="open_market_summary_could_not_open">Playストアを開くことができませんでした。Playストアがインストールされている場合はランチャーから開いてください。</string>
+    <string name="open_market_summary_could_not_open">Playストアを開くことができませんでした。Playストアがインストールされている場合はランチャーから開いてください。
+    </string>
     <string name="custom_density_title">5. 好みの画面密度に変更</string>
     <string name="custom_density_summary">Playストアの互換性に問題がある場合は、再度この手順をやり直してください。</string>
     <string name="custom_density_summary_invalid">不正な画面密度です</string>
@@ -226,7 +292,8 @@
     <string name="set_custom_density_title">画面密度を設定してください</string>
     <string name="set_custom_density_set">設定</string>
     <string name="custom_density_dialog_title">警告!</string>
-    <string name="custom_density_dialog_summary">画面密度を変更するとアプリが予期しない動作をする場合があります。Playストアの互換性に問題がある場合はステップ1からやり直してください。</string>
+    <string name="custom_density_dialog_summary">画面密度を変更するとアプリが予期しない動作をする場合があります。Playストアの互換性に問題がある場合はステップ1からやり直してください。
+    </string>
     <string name="custom_density_dialog_button_got">完了!</string>
     <string name="custom_density_dialog_button_reboot">今すぐ再起動</string>
 
@@ -272,7 +339,9 @@
     <string name="toggle_action_title">短押し動作 %1$s &amp; アイコン</string>
     <string name="toggle_action_title_alt">長押し動作 %1$s &amp; アイコン</string>
     <string name="toggle_longpress_title">長押し動作 %1$s</string>
-    <string name="custom_toggle_desc">タップするたびに次の設定動作にトグルします。短押し動作およびカスタムアイコンを設定していないときは、長押し動作のアイコンが使用されます。\nこれはタップしたときに何も起動せずトグルだけさせたい場合に有用です。</string>
+    <string name="custom_toggle_desc">
+        タップするたびに次の設定動作にトグルします。短押し動作およびカスタムアイコンを設定していないときは、長押し動作のアイコンが使用されます。\nこれはタップしたときに何も起動せずトグルだけさせたい場合に有用です。
+    </string>
     <string name="custom_help_title">動作説明</string>
     <string name="custom_help_summary">動作説明を表示する</string>
     <string name="custom_toggle_okay">閉じる</string>
@@ -291,8 +360,8 @@
     <string name="state_one_dclick">1番目の動作にセット</string>
     <string name="skip_back_dclick">前にスキップ (実行しない)</string>
     <string name="skip_up_dclick">次にスキップ (実行しない)</string>
-    <string name="collapse_bar_title">ステータスバーを閉じる</string>
-    <string name="collapse_bar_summary">動作完了時にステータスバーを閉じる</string>
+    <string name="collapse_bar_title">通知パネルを閉じる</string>
+    <string name="collapse_bar_summary">動作完了時に通知パネルを閉じる</string>
     <string name="no_collapse">閉じない</string>
     <string name="click_collapse">タップ時</string>
     <string name="long_collapse">長押し時</string>
@@ -441,10 +510,13 @@
     <string name="statusbar_hide_summary">ステータスバーを完全に隠す</string>
     <string name="navigation_bar_alpha_title">通知とナビゲーションバーの不透明度</string>
     <string name="navbar_hide_enable_title">ナビゲーションバーを隠す</string>
+    <string name="systembar_hide_enable_title">システムバーを隠す</string>
     <string name="drag_handle_opacity_title">ドラッグハンドルの不透明度</string>
     <string name="drag_handle_width_title">ドラッグハンドルの幅</string>
     <string name="title_navbar_timeout">表示時間</string>
+    <string name="title_systembar_timeout">表示時間</string>
     <string name="summary_navbar_timeout">ナビゲーションバーを隠すまでの時間</string>
+    <string name="summary_systembar_timeout">システムバーを隠すまでの時間</string>
     <string name="hide_navbar_timeout_never">隠さない</string>
     <string name="hide_navbar_timeout_1500">1.5 秒</string>
     <string name="hide_navbar_timeout_3000">3 秒</string>
@@ -482,30 +554,39 @@
     <string name="navring_target_amount_text">現在のターゲット数</string>
     <string name="navring_target_longpress_text">長押し時の動作</string>
 
-   <!-- Ribbon -->
+    <!-- Ribbon -->
     <string name="ribbon_dialog_arrange_title">リボンレイアウト</string>
+    <string name="ribbon_chooser_instructions">設定するリボンを選択してください</string>
     <string name="ribbon_instructions">アイコンをタップして動作を設定してください</string>
     <string name="ribbon_targets_cat">リボンオプション</string>
     <string name="enable_ribbon_text_title">ラベルを表示</string>
     <string name="enable_ribbon_vibrate_title">スワイプ領域タッチで振動</string>
     <string name="enable_ribbon_text_summary">アイコンの下にラベルを表示する</string>
     <string name="ribbon_icon_vibrate_title">アイコンタップで振動</string>
-    <string name="ribbon_icon_space_title">アイコンの左右間隔</string>
-    <string name="ribbon_icon_space_vertical_title">アイコンの上下間隔</string>
+    <string name="ribbon_icon_space_title">リボンのアイコン間隔</string>
+    <string name="app_window_space_title">アイコンの上下間隔</string>
     <string name="ribbon_icon_size_title">アイコンサイズ</string>
+    <string name="ribbon_dismiss_title">リボンを閉じる動作</string>
+    <string name="ribbon_animation_duration_title">アニメーション速度</string>
+    <string name="ribbon_long_swipe_title">スワイプ領域ロングスワイプ</string>
+    <string name="ribbon_long_press_title">スワイプ領域長押し</string>
     <string name="ribbon_icon_size_summary">アイコンの大きさを設定する</string>
     <string name="ribbon_lockscreen">ロック画面リボン</string>
     <string name="ribbon_notifications">通知リボン</string>
     <string name="ribbon_quicksettings">クイック設定リボン</string>
-    <string name="ribbon_swipe">AOKPスワイプリボン</string>
+    <string name="ribbon_swipe_left">左スワイプリボン</string>
+    <string name="ribbon_swipe_right">右スワイプリボン</string>
+    <string name="ribbon_swipe_bottom">下スワイプリボン</string>
+    <string name="app_window">アプリウィンドウ</string>
     <string name="clone_title">コピーするリボンを選択</string>
     <string name="icon_size_normal">大</string>
     <string name="icon_size_20">中</string>
     <string name="icon_size_15">小</string>
-    <string name="ribbon_left_enable_title">左からのスワイプを有効</string>
-    <string name="ribbon_right_enable_title">右からのスワイプを有効</string>
-    <string name="ribbon_bottom_enable_title">下からのスワイプを有効</string>
-    <string name="ribbon_bottom_warning_title">ナビゲーションバーを表示していると下からのスワイプは使用できません</string>
+    <string name="ribbon_left_enable_title">左スワイプリボン</string>
+    <string name="ribbon_right_enable_title">右スワイプリボン</string>
+    <string name="ribbon_bottom_enable_title">下スワイプリボン</string>
+    <string name="ribbon_bottom_warning_title">ナビゲーションバーを表示していると下スワイプリボンは使用できません</string>
+    <string name="ribbon_button_colorize_title">ラベルと同じ色のアイコン</string>
     <string name="ribbon_color_title">スワイプリボンの色</string>
     <string name="text_color_title">ラベルの文字色</string>
     <string name="ribbon_opacity_title">スワイプリボンの不透明度</string>
@@ -515,9 +596,21 @@
     <string name="ribbon_insert">ボタン挿入</string>
     <string name="ribbon_handle_location_title">リボンハンドルの位置</string>
     <string name="ribbon_icon_location_title">アイコンの位置</string>
+    <string name="window_text_color_title">ウィンドウ文字色</string>
+    <string name="window_color_title">ウィンドウ背景色</string>
+    <string name="window_opacity_title">ウィンドウ不透明度</string>
+    <string name="window_columns_title">ウィンドウカラム</string>
+    <string name="window_app_hide_title">隠すアプリを選択</string>
     <string name="center">中央</string>
     <string name="top">上</string>
     <string name="bottom">下</string>
+    <string name="never">閉じない</string>
+    <string name="always">すべて</string>
+    <string name="not_bar">ナビバー動作以外</string>
+    <string name="multi_select_title">追加するターゲットを選択</string>
+    <string name="ribbon_animation_type_title">アニメーションスタイル</string>
+    <string name="ribbon_toggles_button_title">トグルボタンを下に配置</string>
+    <string name="ribbon_hide_ime_title">文字入力時にスワイプ無効</string>
 
     <!-- LED -->
     <string name="led_on">LEDオン</string>
@@ -538,10 +631,12 @@
     <string name="led_test_notification">LED点灯テスト</string>
     <string name="led_test_notification_message_now">"LED点灯テスト : "</string>
     <string name="led_test_notification_message_note">"
-LEDをテストするにはこのまま画面をオフにしてください。LEDのテストが完了するまでOKをタップしないでください。"</string>
+        LEDをテストするにはこのまま画面をオフにしてください。LEDのテストが完了するまでOKをタップしないでください。"
+    </string>
     <string name="led_test_ok">OK</string>
     <string name="title_charging_led_on">"充電中にLEDを点灯
-(要再起動)"</string>
+        (要再起動)"
+    </string>
     <string name="led_change_brightness">LEDの明るさ変更</string>
     <string name="led_brightness_default">デフォルトの明るさ : 31</string>
 
@@ -565,9 +660,10 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="flip_action_positive">OK</string>
     <string name="flip_dialog_title">フェイスダウン時の動作</string>
     <string name="flip_dialog_msg">"端末を裏返すことでバイブレーション、もしくはサイレントの選択したモードになります。
-フェイスダウン判定までの時間はデフォルトで1.5秒です。
-画面がオンになってからデフォルトで15秒後にフリップセンサーが無効になります。
-注：フリップセンサーがタイムアウトした後にサウンドモードを変更するには、端末をフェイスダウンさせてから画面をオンにする必要があります。"</string>
+        フェイスダウン判定までの時間はデフォルトで1.5秒です。
+        画面がオンになってからデフォルトで15秒後にフリップセンサーが無効になります。
+        注：フリップセンサーがタイムアウトした後にサウンドモードを変更するには、端末をフェイスダウンさせてから画面をオンにする必要があります。"
+    </string>
     <string name="summary_phone_flip_mode">着信時に端末をフェイスダウンさせることでサイレントモードへ移行する</string>
     <string name="title_phone_flip_mode">サイレントモードに移行</string>
 
@@ -581,29 +677,31 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="lockscreen_menu_unlock_title">メニューキーでロックを解除</string>
     <string name="lockscreen_menu_unlock_summary">メニューキーでロックを解除する</string>
     <string name="lockscreen_auto_rotate_title">ロック画面の回転を有効にする</string>
-    <string name="lockscreen_auto_rotate_summary">ロック画面をデバイスの向きに応じて回転させることができる。これは画面の自動回転とは無関係です。</string>
+    <string name="lockscreen_auto_rotate_summary">ロック画面をデバイスの向きに応じて回転させることができます。これは画面の自動回転とは無関係です。</string>
     <string name="lockscreen_all_widgets_title">全ウィジェットの配置を許可</string>
-    <string name="lockscreen_all_widgets_summary">警告:ウィジェットによってはロック画面上で使用されることを意図しておらず、ウィジェット作成者またはAOKPはロック画面へのウィジェット配置に関して責任を負いません。自己責任で選択してください。</string>
+    <string name="lockscreen_all_widgets_summary">
+        警告:ウィジェットによってはロック画面上で使用されることを意図しておらず、ウィジェット作成者またはAOKPはロック画面へのウィジェット配置に関して責任を負いません。自己責任で選択してください。
+    </string>
     <string name="lockscreen_unlimited_widgets_title">ウィジェット配置数制限を無効</string>
     <string name="lockscreen_unlimited_widgets_summary">警告:あまりにも多くのウィジェットを追加するとロック画面のラグ問題を引き起こす可能性があります。</string>
     <string name="lockscreen_battery_title">ロック画面に電池残量を表示</string>
-    <string name="lockscreen_battery_summary">ロック画面に電池残量を常に表示する</string>
+    <string name="lockscreen_battery_summary">ロック画面に電池残量を常に表示します。</string>
     <string name="lockscreen_hide_initial_page_hints_title">ガイドを非表示</string>
-    <string name="lockscreen_hide_initial_page_hints_summary">ロック画面の左右に表示されるウィジェットのガイドを表示しない</string>
+    <string name="lockscreen_hide_initial_page_hints_summary">ロック画面の左右に表示されるウィジェットのガイドを表示しません。</string>
     <string name="lockscreen_minimize_challenge_title">ロック解除表示を最小化</string>
-    <string name="lockscreen_minimize_challenge_summary">画面オン時にロック解除表示を最小化する</string>
+    <string name="lockscreen_minimize_challenge_summary">画面オン時にロック解除表示を最小化します。</string>
     <string name="lockscreen_use_widget_container_carousel_title">回転アニメーションを使用</string>
-    <string name="lockscreen_use_widget_container_carousel_summary">ロック画面ウィジェットの切り替え時に回転アニメーションを使用する</string>
+    <string name="lockscreen_use_widget_container_carousel_summary">ロック画面ウィジェットの切り替え時に回転アニメーションを使用します。</string>
     <string name="volume_rocker_wake_title">ボリュームキーでスリープ解除</string>
-    <string name="volume_rocker_wake_summary">ボリュームキーを押すことでスリープを解除する</string>
+    <string name="volume_rocker_wake_summary">ボリュームキーを押すことでスリープを解除します。</string>
     <string name="volume_music_controls_title">ボリュームキーで曲選択</string>
-    <string name="volume_music_controls_summary">画面オフ時にボリュームキーの長押しで曲をスキップする。音楽再生中はボリュームキーを押してもスリープは解除されません。</string>
+    <string name="volume_music_controls_summary">画面オフ時にボリュームキーの長押しで曲をスキップします。音楽再生中はボリュームキーを押してもスリープは解除されません。</string>
     <string name="lockscreen_stock_music_layout_title">標準の音楽プレーヤーを使用</string>
     <string name="lockscreen_stock_music_layout_summary">音楽再生の際に標準の音楽プレーヤーを使用する</string>
     <string name="lockscreen_wallpaper_title">ロック画面の壁紙の選択</string>
     <string name="lockscreen_wallpaper_summary">ロック画面の壁紙を元に戻すにはメニューから設定をリセットしてください</string>
     <string name="lockscreen_text_color_title">ロック画面の文字色</string>
-    <string name="lockscreen_text_color_summary">ロック画面の文字色を設定する</string>
+    <string name="lockscreen_text_color_summary">ロック画面の文字色を設定します。</string>
     <string name="lockscreen_weather_title">ロック画面に天気情報を表示</string>
     <string name="lockscreen_weather_summary">ロック画面に天気情報を表示する (天気情報表示を有効にする必要あり)</string>
     <string name="lockscreen_weather_type_title">ロック画面の天気表示スタイル</string>
@@ -637,6 +735,8 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="lockscreen_targets_title">ロック画面ターゲット</string>
     <string name="lockscreen_targets_summary">ロック画面ターゲットサマリー…</string>
     <string name="lockscreen_target_longpress_text">長押し時の動作</string>
+    <string name="lockscreen_glow_torch_text">グローパッドトーチ</string>
+    <string name="lockscreen_glow_torch_summary">ロックサークルの中央を長押しすることでトーチON、指を離すとトーチOFFにします。</string>
     <string name="lockscreen_camera">カメラ</string>
     <string name="lockscreen_unlock">ロック解除</string>
     <string name="save_error">ターゲットを保存できません！少なくとも一つロック解除ターゲットが必要です！</string>
@@ -654,17 +754,20 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="lockscreen_target_reset_message">編集したロック画面ターゲットを削除してデフォルトに戻しますか?</string>
     <string name="lockscreen_target_edit_title">ターゲットとアイコンの編集</string>
     <string name="lockscreen_target_edit_msg">アプリやアクティビティとアイコンを編集してください</string>
-    <string name="lockscreen_target_longpress_summary">ロック画面ターゲットの長押しを有効にする</string>
+    <string name="lockscreen_target_longpress_summary">ロック画面ターゲットの長押しを有効にします。</string>
 
     <!-- Weather -->
     <string name="weather_enable">天気情報表示を有効</string>
     <string name="weather_enable_summary">通知パネルやロック画面に天気情報を表示する</string>
     <string name="weather_use_custom_location">地域を指定</string>
-    <string name="weather_use_custom_location_summary">地域を指定した場合バッテリーを節約することができます。指定しない場合は現在地を特定するためにネットワークを利用します。</string>
+    <string name="weather_use_custom_location_summary">地域を指定した場合バッテリーを節約することができます。指定しない場合は現在地を特定するためにネットワークを利用します。
+    </string>
     <string name="weather_custom_location_dialog_title">地域を指定してください</string>
-    <string name="weather_custom_location_dialog_message">"例のように地域を指定してください。無効な地域を指定すると天気情報の更新を停止し、予期しない動作を引き起こす可能性があります。
+    <string name="weather_custom_location_dialog_message">
+        "例のように地域を指定してください。無効な地域を指定すると天気情報の更新を停止し、予期しない動作を引き起こす可能性があります。
 
-例：Tokyo / Osaka / Nagoya"</string>
+        例：Tokyo / Osaka / Nagoya"
+    </string>
     <string name="weather_custom_location_title">地域を指定する</string>
     <string name="weather_show_location_title">地域を表示する</string>
     <string name="weather_show_location_summary">天気情報を取得中の地域を表示する</string>
@@ -678,7 +781,9 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="update">天気情報パネルを更新</string>
     <string name="weather_refreshing">天気情報を更新中</string>
     <string name="weather_loc_warning_title">地域が取得できません</string>
-    <string name="weather_loc_warning_msg">ネットワークからの現在値の取得が無効になっているため、天気情報を取得する地域の判別ができません。地域を指定するか、ネットワークからの現在地の取得を有効にしてください。</string>
+    <string name="weather_loc_warning_msg">
+        ネットワークからの現在値の取得が無効になっているため、天気情報を取得する地域の判別ができません。地域を指定するか、ネットワークからの現在地の取得を有効にしてください。
+    </string>
     <string name="weather_loc_warning_positive">有効にする</string>
     <string name="weather_loc_warning_negative">無効のまま</string>
     <string name="menu_weather_get_weather">天気情報を更新</string>
@@ -776,18 +881,19 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <string name="vib_cur_loaded_title">"現在の設定 : "</string>
     <string name="help">ヘルプ</string>
     <string name="vibration_detailed_help">"5つの簡単なステップでバイブレーションパターンを作成することができます:
- - 「新規/リセット」をタップします。
- - 「記録」をタップします。
- - 「タップ!」でリズムを刻み、パターンを記録します。
- - 「停止」をタップします。
- - 「保存」をタップし名前を入力します。
+        - 「新規/リセット」をタップします。
+        - 「記録」をタップします。
+        - 「タップ!」でリズムを刻み、パターンを記録します。
+        - 「停止」をタップします。
+        - 「保存」をタップし名前を入力します。
 
- 「再生」ボタンをタップすることで記録されたパターンが確認できます。
- 既に保存されているパターンを変更したい場合は「読み込み」をタップして選択し、パターンを作成してから再度保存します。(別の名前を選択した場合でもそれが上書きされます)
- パターンを削除するには「削除」をタップしてパターンを選択し、もう一度「削除」をタップします。 初期パターンを削除することはできません。
+        「再生」ボタンをタップすることで記録されたパターンが確認できます。
+        既に保存されているパターンを変更したい場合は「読み込み」をタップして選択し、パターンを作成してから再度保存します。(別の名前を選択した場合でもそれが上書きされます)
+        パターンを削除するには「削除」をタップしてパターンを選択し、もう一度「削除」をタップします。 初期パターンを削除することはできません。
 
- 「電話>設定」もしくは「設定>音」からデフォルトのバイブレーションパターンを選択することができます。
- 連絡帳アプリから連絡先を選択し、「メニュー>バイブレーションを設定」を選択することで連絡先に割り当てることができます。"</string>
+        「電話>設定」もしくは「設定>音」からデフォルトのバイブレーションパターンを選択することができます。
+        連絡帳アプリから連絡先を選択し、「メニュー>バイブレーションを設定」を選択することで連絡先に割り当てることができます。"
+    </string>
 
     <!-- boot animation stuff -->
     <string name="insult_jerk">Jerk!</string>
@@ -961,5 +1067,8 @@ LEDをテストするにはこのまま画面をオフにしてください。LE
     <!-- haptic feedback on toggle press -->
     <string name="toggles_enable_haptic_feedback_title">振動フィードバック</string>
     <string name="toggles_enable_haptic_feedback_summary">トグルをタップした時の振動フィードバックを有効にする</string>
+    <!-- dynamic changelog -->
+    <string name="dynamic_changelog_title">変更履歴</string>
+    <string name="dynamic_changelog_summary">Gerritインスタンスから変更履歴を参照する</string>
 
 </resources>

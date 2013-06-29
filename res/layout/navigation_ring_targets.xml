@@ -33,7 +33,7 @@
             android:layout_weight="0.5"
             android:padding="4dip"
             android:gravity="left"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/navring_target_amount_text" />
 
@@ -64,7 +64,7 @@
             android:layout_weight="0.5"
             android:padding="4dip"
             android:gravity="left"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/navring_target_longpress_text" />
 
@@ -76,20 +76,20 @@
             android:layout_marginStart="8dip"
             android:layout_weight="0.5"
             android:padding="4dip"
-            android:gravity="left"/>
+            android:gravity="left" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.6" />
+        android:layout_weight="0.4" />
 
     <com.android.internal.widget.multiwaveview.GlowPadView
         android:id="@+id/navring_target"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
+        android:layout_weight="0.6"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:gravity="top"

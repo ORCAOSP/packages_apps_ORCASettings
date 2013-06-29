@@ -285,6 +285,30 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <string-array name="navring_dialog_entries" translatable="false">
+        <item>@string/none</item>
+        <item>@string/open_ime_switcher</item>
+        <item>@string/ring_vib</item>
+        <item>@string/ring_silent</item>
+        <item>@string/ring_vib_silent</item>
+        <item>@string/kill_app</item>
+        <item>@string/lastapp</item>
+        <item>@string/screen_off</item>
+        <item>@string/google_now</item>
+        <item>@string/select_application</item>
+    </string-array>
+    <string-array name="navring_dialog_values" translatable="false">
+        <item>**null**</item>
+        <item>**ime**</item>
+        <item>**ring_vib**</item>
+        <item>**ring_silent**</item>
+        <item>**ring_vib_silent**</item>
+        <item>**kill**</item>
+        <item>**lastapp**</item>
+        <item>**power**</item>
+        <item>**assist**</item>
+        <item>**app**</item>
+    </string-array>
     <string-array name="ribbon_dialog_entries" translatable="false">
         <item>@string/navring_short</item>
         <item>@string/navring_long</item>
@@ -366,7 +390,19 @@
         <item>@string/statusbar</item>
         <item>@string/top_of_navbar</item>
         <item>@string/bottom_of_navbar</item>
-    </string-array>  
+    </string-array>
+
+    <!-- Toggle tile background style -->
+    <string-array name="tile_background_style_entries">
+        <item>@string/tile_background_random</item>
+        <item>@string/tile_background_color_fill</item>
+        <item>@string/tile_background_default</item>
+    </string-array>
+    <string-array name="tile_background_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string-array name="battery_bar_values" translatable="false">
         <item>0</item>
         <item>1</item>
@@ -577,7 +613,7 @@
         <item>240</item>
         <item>360</item>
         <item>480</item>
-    </string-array> 
+    </string-array>
     <string-array name="weather_statusbar_location_entries" translatable="false">
         <item>@string/above_carrier_text</item>
         <item>@string/weather_panel</item>
@@ -680,6 +716,17 @@
         <item>60000</item>
         <item>120000</item>
     </string-array>
+    <string-array name="pref_lockscreen_glowtorch_entries" translatable="false">
+        <item>@string/lockscreen_torch_off</item>
+        <item>@string/lockscreen_torch_lockcircle</item>
+        <item>@string/lockscreen_torch_navring</item>
+
+    </string-array>
+    <string-array name="pref_lockscreen_glowtorch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
     <string-array name="signal_style_entries" translatable="false">
         <item>@string/show_signal_bars</item>
         <item>@string/show_signal_text</item>
@@ -764,7 +811,7 @@
         <item>**update**</item>
         <item>**app**</item>
     </string-array>
-	<string-array name="choose_toggle_side_entries" translatable="false">
+    <string-array name="choose_toggle_side_entries" translatable="false">
         <item>@string/right</item>
         <item>@string/left</item>
     </string-array>
@@ -803,6 +850,38 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+    <string-array name="spen_entries" translatable="false">
+        <item>@string/home</item>
+        <item>@string/back</item>
+        <item>@string/recents</item>
+        <item>@string/recents_gb</item>
+        <item>@string/lastapp</item>
+        <item>@string/search</item>
+        <item>@string/menu</item>
+        <item>@string/open_ime_switcher</item>
+        <item>@string/nav_widgets</item>
+        <item>@string/kill_app</item>
+        <item>@string/power</item>
+        <item>@string/notifications</item>
+        <item>@string/custom_app</item>
+        <item>@string/blank</item>
+    </string-array>
+    <string-array name="spen_values" translatable="false">
+        <item>**home**</item>
+        <item>**back**</item>
+        <item>**recents**</item>
+        <item>**recentsgb**</item>
+        <item>**lastapp**</item>
+        <item>**search**</item>
+        <item>**menu**</item>
+        <item>**ime**</item>
+        <item>**widgets**</item>
+        <item>**kill**</item>
+        <item>**power**</item>
+        <item>**notifications**</item>
+        <item>**app**</item>
+        <item>**null**</item>
     </string-array>
     <string-array name="ribbon_icon_size_entries" translatable="false">
         <item>@string/icon_size_normal</item>
@@ -875,5 +954,4 @@
         <item>7500</item>
         <item>10000</item>
     </string-array>
-   
 </resources>

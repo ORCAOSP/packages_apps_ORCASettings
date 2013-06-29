@@ -180,8 +180,6 @@
     <string name="rotate_270_summary">Checking this allows your device to rotate to the right</string>
     <string name="ram_bar">Recents RAM bar</string>
     <string name="ram_bar_summary">Shows RAM usage in the Recent Apps window</string>
-    <string name="longpress_to_kill">Hardware Back-to-kill</string>
-    <string name="longpress_to_kill_summary">Holding the hardware Back button will kill the activity in the foreground</string>
     <string name="tablet_ui">Force Tablet UI</string>
     <string name="tablet_ui_summary">This will switch to Tablet UI (requires reboot)</string>
     <string name="hide_extras">Hide Extras</string>
@@ -283,6 +281,8 @@
     <string name="toggle_text_color_title">Toggle text color</string>
     <string name="toggle_favcontact_title">Favorite contact</string>
     <string name="toggle_favcontact_summary">Choose your favorite contact</string>
+    <string name="toggle_collapse_generic_title">Collapse shade on toggle click</string>
+    <string name="toggle_collapse_generic_summary">Close shade on all generic toggle actions</string>
     <string name="toggle_enable_fasttoggle_title">Enable fast toggle</string>
     <string name="toggle_enable_fasttoggle_summary">Overrides default behavior</string>
     <string name="toggle_choose_fasttoggle_side_title">Choose fast toggle side</string>
@@ -324,6 +324,7 @@
     <string name="click_collapse">On click</string>
     <string name="long_collapse">On long click</string>
     <string name="both_collapse">Both click and long click</string>
+    <string name="custom_toggle_colors">Custom colors</string>
 
     <!-- Statusbar | Clock -->
     <string name="clock_title_enable">Clock style</string>
@@ -342,6 +343,29 @@
     <string name="title_clock_doubleclick">Clock double click actions</string>
     <string name="title_clock_longclick">Clock long click actions</string>
     <string name="title_clock_shortclick">Clock short click actions</string>
+
+    <!-- Tile background style and text color -->
+    <string name="tile_background_style_title">Tile background style</string>
+    <string name="tile_background_style_summary">Lets you choose from random, color fill or default background for tiles</string>
+    <string name="tile_background_color_title">Set tile background color</string>
+    <string name="tile_background_pressed_color_title">Set tile pressed background color</string>
+    <string name="tile_background_random">Random colors</string>
+    <string name="tile_background_color_fill">Color fill</string>
+    <string name="tile_background_default">Default background</string>
+    <string name="tile_custom_background_dialog_title">Tile background style</string>
+    <string name="tile_text_color_title">Set tile text color</string>
+
+    <!-- Random colors -->
+    <string name="random_colors">Random colors</string>
+    <string name="random_colors_title">Set random colors</string>
+    <string name="random_colors_summary">Allows you to select your own random colors</string>
+    <string name="random_colors_reset_title">Reset random colors</string>
+    <string name="color_one">Color one</string>
+    <string name="color_two">Color two</string>
+    <string name="color_three">Color three</string>
+    <string name="color_four">Color four</string>
+    <string name="color_five">Color five</string>
+    <string name="color_six">Color six</string>
 
     <!-- Toggle Strings to be called from device overlays -->
     <string name="toggle_airplane_mode">Airplane Mode</string>
@@ -393,8 +417,8 @@
     <string name="hide_signal_summary">Checking this hides the signal bar indicator (updates when signal strength changes)</string>
     <string name="wifi_signal_style">WiFi signal indicator style</string>
     <string name="wifi_signal_color_title">WiFi signal text color</string>
-    <string name="alt_signal_title">Use Alt Signal</string>
-    <string name="alt_signal_summary">Will hide signal and connection state</string>   
+    <string name="alt_signal_title">Hide signal</string>
+    <string name="alt_signal_summary">Will hide WiFi and Mobile signal</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
@@ -509,7 +533,7 @@
     <string name="navring_target_amount_text">Current number of targets</string>
     <string name="navring_target_longpress_text">Longpress actions</string>
 
-   <!-- Ribbon -->
+    <!-- Ribbon -->
     <string name="ribbon_dialog_arrange_title">Ribbon layout</string>
     <string name="ribbon_chooser_instructions">Select which Ribbon to setup.</string>
     <string name="ribbon_instructions">Press icons to select actions or delete.\nPress menu for more options.</string>
@@ -682,7 +706,10 @@
     <string name="lockscreen_targets_summary">Lockscreen targets summary…</string>
     <string name="lockscreen_target_longpress_text">Longpress actions</string>
     <string name="lockscreen_glow_torch_text">GlowPad torch</string>
-    <string name="lockscreen_glow_torch_summary">Longpressing the center of the lockcircle will turn torch on.  Release finger to turn torch off.</string>
+    <string name="lockscreen_glow_torch_summary">Longpressing the center of the lock ring or navigation ring will turn torch on.  Release finger to turn torch off.</string>
+    <string name="lockscreen_torch_off">Off</string>
+    <string name="lockscreen_torch_lockcircle">LockRing</string>
+    <string name="lockscreen_torch_navring">NavRing</string>
     <string name="lockscreen_camera">Camera</string>
     <string name="lockscreen_unlock">Unlock</string>
     <string name="save_error">Could not save targets! You must have at least one unlock target!</string>
@@ -894,7 +921,7 @@
     <string name="recents_gb">Recents (GB style)</string>
     <string name="custom_app">Custom app</string>
     <string name="menu_power">Power menu</string>
-    <string name="aokp_ribbon">Bigfoot Ribbon</string>
+    <string name="aokp_ribbon">Orca Ribbon</string>
     <string name="nav_widgets">Nav Widgets</string>
     <string name="blank">Blank</string>
     <string name="none">None</string>

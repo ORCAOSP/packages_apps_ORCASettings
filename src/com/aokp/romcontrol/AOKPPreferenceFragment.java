@@ -24,7 +24,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.CheckBoxPreference;
@@ -37,10 +36,8 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Button;
 
-import com.aokp.romcontrol.R;
-
 /**
- * Base class for Settings fragments, with some helper functions and dialog management
+ * Base class for Settings fragments, with some helper functions and dialog management.
  */
 public class AOKPPreferenceFragment extends PreferenceFragment implements DialogCreatable {
 
@@ -56,6 +53,7 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
     protected boolean hasColorTuning;
     protected boolean hasVibration = false;
     protected ContentResolver mContentRes;
+    protected ContentResolver mContentAppRes;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,15 +63,15 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
         hasFastCharge = getResources().getBoolean(R.bool.has_fast_charge);
         hasColorTuning = getResources().getBoolean(R.bool.has_color_tuning);
         mContext = getActivity();
-        mContentRes = getActivity().getContentResolver();
         mActionBar = getActivity().getActionBar();
-        Drawable d = getResources().getDrawable(R.drawable.ab_background);  
-        getActivity().getActionBar().setBackgroundDrawable(d);
-        if(getArguments() != null) {
+        mContentRes = getActivity().getContentResolver();
+        mContentAppRes = mContext.getContentResolver();
+        if (getArguments() != null) {
             mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
         }
-        if(!mShortcutFragment)
+        if (!mShortcutFragment) {
             mActionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator != null && mVibrator.hasVibrator()) {
@@ -83,21 +81,22 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
 
     public static boolean isTablet(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.CURRENT_UI_MODE,0) == 1;
+                Settings.System.CURRENT_UI_MODE, 0) == 1;
     }
 
     public static boolean isPhablet(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.CURRENT_UI_MODE,0) == 2;
+                Settings.System.CURRENT_UI_MODE, 0) == 2;
     }
 
-    public static boolean hasPhoneAbility(Context context)
-    {
-       TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-       if(telephonyManager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE)
-           return false;
+    public static boolean hasPhoneAbility(Context context) {
+        TelephonyManager telephonyManager =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephonyManager.getPhoneType() == TelephonyManager.PHONE_TYPE_NONE) {
+            return false;
+        }
 
-       return true;
+        return true;
     }
 
     public static boolean isSW600DPScreen(Context context) {
@@ -158,7 +157,6 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
     }
 
     // Dialog management
-
     protected void showDialog(int dialogId) {
         if (mDialogFragment != null) {
             Log.e(TAG, "Old dialog fragment not null!");
@@ -318,7 +316,7 @@ public class AOKPPreferenceFragment extends PreferenceFragment implements Dialog
     }
 
     protected boolean isCheckBoxPrefernceChecked(Preference p) {
-        if(p instanceof CheckBoxPreference) {
+        if (p instanceof CheckBoxPreference) {
             return ((CheckBoxPreference) p).isChecked();
         } else {
             return false;

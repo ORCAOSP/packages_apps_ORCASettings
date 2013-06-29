@@ -16,8 +16,8 @@
 
 <resources>
 
-    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge" />
-    <style name="Settings" parent="android:Theme.Holo.Light.DarkActionBar" />
+    <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge">
+    </style>
 
     <style name="VibButton" parent="android:Widget.ActionButton">
         <item name="android:layout_width">wrap_content</item>
@@ -36,5 +36,5 @@
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/vib_button</item>
     </style>
-    
+
 </resources>
