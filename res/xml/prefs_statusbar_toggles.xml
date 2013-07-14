@@ -123,7 +123,7 @@
         android:key="custom_buttons"
         android:title="@string/custom_button_cat">
 
-        <com.aokp.romcontrol.widgets.CustomTogglePref
+        <com.orca.settings.widgets.CustomTogglePref
             android:key="custom_toggle_pref" />
 
     </PreferenceCategory>

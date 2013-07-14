@@ -43,7 +43,7 @@ import android.widget.HeaderViewListAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.aokp.romcontrol.R;
+import com.orca.settings.R;
 
 import java.io.File;
 import java.io.FileWriter;

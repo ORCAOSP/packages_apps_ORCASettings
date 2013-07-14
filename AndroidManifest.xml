@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.aokp.romcontrol">
+          package="com.orca.settings">
 
     <uses-sdk android:minSdkVersion="17"/>
-    <original-package android:name="com.aokp.romcontrol"/>
+    <original-package android:name="com.orca.settings"/>
 
     <uses-permission android:name="android.permission.REBOOT"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -33,7 +33,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -42,7 +42,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -55,7 +55,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -64,7 +64,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -73,7 +73,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -82,7 +82,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT" />
+                <category android:name="com.orca.settings.SHORTCUT" />
             </intent-filter>
         </activity>
         <activity
@@ -91,7 +91,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT" />
+                <category android:name="com.orca.settings.SHORTCUT" />
             </intent-filter>
         </activity>
         <activity
@@ -100,7 +100,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -109,7 +109,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -118,7 +118,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT" />
+                <category android:name="com.orca.settings.SHORTCUT" />
             </intent-filter>
         </activity>
         <activity
@@ -127,7 +127,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -136,7 +136,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <activity
@@ -167,7 +167,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
 
@@ -178,7 +178,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
 
@@ -188,12 +188,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="com.aokp.romcontrol.SHORTCUT"/>
+                <category android:name="com.orca.settings.SHORTCUT"/>
             </intent-filter>
         </activity>
         <provider
             android:name=".vibrations.VibrationsProvider"
-            android:authorities="com.aokp.romcontrol.Vibrations"
+            android:authorities="com.orca.settings.Vibrations"
             android:exported="true"/>
 
         <activity
@@ -215,7 +215,7 @@
         <receiver
             android:name=".service.ChangeFastChargeStateReceiver">
             <intent-filter>
-                <action android:name="com.aokp.romcontrol.ACTION_CHANGE_FCHARGE_STATE"/>
+                <action android:name="com.orca.settings.ACTION_CHANGE_FCHARGE_STATE"/>
             </intent-filter>
         </receiver>
         <receiver android:name=".service.CodeReceiver">
