@@ -95,12 +95,6 @@
     <header
         android:id="@+id/system"
         android:title="@string/header_system" />
-
-    <header
-        android:id="@+id/misc"
-        android:fragment="com.orca.settings.fragments.OrcaTools"
-        android:title="@string/extras"
-        android:icon="@drawable/ic_rom_control_led" />
  
     <header
         android:id="@+id/led"

@@ -1,5 +1,5 @@
 <!--
-  Copyright 2013 AOKP
+  Copyright 2013 The Orca Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
   limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res/com.aokp.romcontrol"
+              xmlns:app="http://schemas.android.com/apk/res/com.orca.settings"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_margin="10dp"
