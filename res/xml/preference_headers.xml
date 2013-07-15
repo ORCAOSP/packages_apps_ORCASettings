@@ -7,12 +7,7 @@
         android:fragment="com.aokp.romcontrol.fragments.UserInterface"
         android:title="@string/general_ui"
         android:icon="@drawable/ic_rom_control_general_ui"
-        android:summary="@string/header_summary_general_ui" />
-        
-    <header
-        android:id="@+id/launcher_settings"
-        android:title="@string/launcher_settings_title"
-        android:icon="@drawable/ic_settings_cmlauncher" />        
+        android:summary="@string/header_summary_general_ui" />       
 
     <header android:id="@+id/themes"
             android:title="@string/themes_title"
