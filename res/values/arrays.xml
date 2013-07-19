@@ -291,6 +291,11 @@
         <item>@string/battery7</item>
         <item>@string/battery8</item>
         <item>@string/battery9</item>
+        <item>@string/battery10</item>
+        <item>@string/battery11</item>
+        <item>@string/battery12</item>
+        <item>@string/battery13</item>
+        <item>@string/battery14</item>
         <item>@string/dont_show</item>
     </string-array>
     <string-array name="battery_icon_values" translatable="false">
@@ -308,6 +313,11 @@
         <item>11</item>
         <item>12</item>
         <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
     </string-array>
 
     <!-- NavBar -->
